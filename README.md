@@ -6,7 +6,7 @@
 * mysql:8.0
 * phpmyadmin/phpmyadmin
 
-1. コンテナへ入る
+* コンテナへ入る
 `docker-compose exec app bash`
 
 
