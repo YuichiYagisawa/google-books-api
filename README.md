@@ -7,7 +7,7 @@
 * phpmyadmin/phpmyadmin
 
 ## What to do after cloning
-1. `docker-compose exec app bash`,`composer create-project --prefer-dist laravel/laravel "project name"`
+1. `docker-compose exec app bash`,`composer create-project --prefer-dist laravel/laravel app`
 
 2. Change .env of db
   `DB_CONNECTION=mysql  DB_HOST=mysql  DB_PORT=3306  DB_DATABASE=sample  DB_USERNAME=user  DB_PASSWORD=password`
