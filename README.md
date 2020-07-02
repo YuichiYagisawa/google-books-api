@@ -6,8 +6,12 @@
 * mysql:8.0
 * phpmyadmin/phpmyadmin
 
-* コンテナへ入る
+* appコンテナへ入る
 `docker-compose exec app bash`
+
+* mysqlコンテナへ入る
+`docker-compose exec mysql bash -c 'mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'`
+
 
 
 ## port
