@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('input');
+    return view('input', 'testController@input');
 });
+
+Route::get('/', 'testController@input');
 
 // Route::get('/input', function () {
 //     return view('input');
@@ -24,3 +27,5 @@ Route::get('/', function () {
 Route::post('result', 'testController@result');
 
 Route::post('detail', 'testController@detail');
+
+Route::post('store', 'testController@store');

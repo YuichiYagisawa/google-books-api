@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 
-class BooksMaster extends Migration
+class CreateBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +13,7 @@ class BooksMaster extends Migration
      */
     public function up()
     {
-        Schema::create('books_master', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('title');
             $table->timestamps();
@@ -28,6 +27,6 @@ class BooksMaster extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('books');
     }
 }
