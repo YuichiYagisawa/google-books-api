@@ -22,3 +22,5 @@ Route::get('/', function () {
 // });
 
 Route::post('result', 'testController@result');
+
+Route::post('detail', 'testController@detail');
