@@ -1,3 +1,4 @@
+@extends('template')
 @foreach ($json_decode['items'] as $item)
   {{ $item['volumeInfo']['title'] }} <br>
   <form action="/detail" method="post">
