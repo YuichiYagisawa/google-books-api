@@ -10,16 +10,23 @@ $(window).on('load', function() {
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        data: ("keyword=" + input)
+        data: ("keyword=" + input),
         // success:function(data){
         //   alert(data);
         // },error:function(){ 
         //     alert("error!!!!");
         // }
+      }).then(
+        function ($books){
+          var books = $books;
+          // console.log(books);
+
+          $.each(books, function(index, elem){
+            $('<li></li>').append(elem.title).appendTo('#book_list');
+          });
       });
     };
   
-  // console.log(ajaxSerch("kai"));
   $('#inc_serch').on('keyup', function(){
     input = $.trim($('#inc_serch').val());
     console.log(input);
@@ -30,6 +37,5 @@ $(window).on('load', function() {
     preInput = input;
     // console.log(preInput);
   });
-  
 });
 

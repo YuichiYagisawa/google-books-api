@@ -10994,9 +10994,14 @@ return jQuery;
       //     alert("error!!!!");
       // }
 
-    });
-  }; // console.log(ajaxSerch("kai"));
+    }).then(function ($books) {
+      var books = $books; // console.log(books);
 
+      $.each(books, function (index, elem) {
+        $('<li></li>').append(elem.title).appendTo('#book_list');
+      });
+    });
+  };
 
   $('#inc_serch').on('keyup', function () {
     input = $.trim($('#inc_serch').val());
