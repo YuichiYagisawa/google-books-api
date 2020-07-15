@@ -9,9 +9,8 @@
   </form>
 
   <div id='book_list'>
-
   </div>
-
+  
   @foreach ($books as $book)
     {{ $book->title }}<br>
   @endforeach
