@@ -11017,6 +11017,11 @@ return jQuery;
   ;
   $('#inc_serch').on('keyup', function () {
     input = $.trim($('#inc_serch').val());
+
+    if (input === '') {
+      return $('#book_list').html('該当する本はありません');
+    }
+
     console.log(input);
 
     if (preInput !== input) {
