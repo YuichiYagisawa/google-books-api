@@ -8,11 +8,12 @@
     <input type="submit" value="Submit" />
   </form>
 
-  <div id='book_list'>
+  <div>
+    <ul id='book_list'></ul>
   </div>
   
-  @foreach ($books as $book)
+  {{-- @foreach ($books as $book)
     {{ $book->title }}<br>
-  @endforeach
+  @endforeach --}}
     
 @endsection
