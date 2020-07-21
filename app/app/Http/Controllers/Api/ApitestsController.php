@@ -8,5 +8,18 @@ use Illuminate\Http\Request;
 
 class ApitestsController extends Controller
 {
-    //
+    public function serch(Request $request)
+    {
+        $serchWord = $request -> get('keyword');
+        $books = Books::where('title', 'LIKE', "%{$serchWord}%")->get('title');
+
+        // $data = [
+        //     'title' => $books->title
+        // ];
+
+        // return redirect('/')->with($books);
+        // return view('input', compact('books')) -> render();
+        // return view('input');
+        return response($books);
+    }
 }

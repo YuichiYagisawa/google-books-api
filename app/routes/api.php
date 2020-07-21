@@ -19,5 +19,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::group(['middleware' => ['api']], function () {
-    Route::resource('apitests', 'Api\ApitestsController');
+    Route::get('serch', 'Api\ApitestsController@serch');
 });

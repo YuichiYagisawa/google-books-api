@@ -10980,31 +10980,48 @@ return jQuery;
 /* WEBPACK VAR INJECTION */(function($) {$(window).on('load', function () {
   var preFunc = null,
       preInput = '',
-      input = '',
-      ajaxSerch = function ajaxSerch(input) {
+      input = '';
+
+  function builtHTML(data) {
+    var html = "\n      <li>".concat(data.title, "</li>\n    ");
+    $('#book_list').append(html);
+  }
+
+  ;
+
+  function ajaxSerch(input) {
     $.ajax({
       url: "api/serch",
       type: "GET",
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
-      data: "keyword=" + input // success:function(data){
-      //   alert(data);
-      // },error:function(){ 
-      //     alert("error!!!!");
-      // }
+      data: "keyword=" + input
+    }).done(function ($books) {
+      $('#book_list').empty();
+      var data = $books;
+      console.log(data);
+      $('#book_list').empty();
 
-    }).then(function ($books) {
-      var books = $books; // console.log(books);
-
-      $.each(books, function (index, elem) {
-        $('<li></li>').append(elem.title).appendTo('#book_list');
-      });
+      if (data.length !== 0) {
+        data.forEach(function (data) {
+          //dataは配列型に格納されているのでEach文で回す
+          builtHTML(data);
+        });
+      } else {
+        $('#book_list').html('該当する本はありません');
+      }
     });
-  };
+  }
 
+  ;
   $('#inc_serch').on('keyup', function () {
     input = $.trim($('#inc_serch').val());
+
+    if (input === '') {
+      return $('#book_list').html('該当する本はありません');
+    }
+
     console.log(input);
 
     if (preInput !== input) {
