@@ -39,8 +39,12 @@ class testController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $new_book = new Books;
         $new_book->title = $request->title;
+        $new_book->description = $request->description;
+        $new_book->publishedDate = $request->publishedDate;
+        $new_book->bookId = $request->id;
         // dd($new_book);
         $new_book->save();
 
