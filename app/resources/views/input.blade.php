@@ -2,7 +2,7 @@
 
 @section('input')
 
-  <form action="/result" method="post">
+  <form action="/result" method="get">
     @csrf
     <input type="text" name="book" size="20" id="inc_serch" />
     <input type="submit" value="Submit" />

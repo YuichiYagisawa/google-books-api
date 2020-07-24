@@ -37,6 +37,18 @@ class testController extends Controller
         return view('detail', compact("json_decode"));
     }
 
+    public function book_detail($id)
+    {
+        $book = Books::findOrFail($id);
+        $data = [
+            'title' => $book->title,
+            'description' => $book->description,
+            'publishedDate' => $book->publishedDate,
+        ];
+        // dd($data);
+        return view('book_detail', compact("data"));
+    }
+
     public function store(Request $request)
     {
         // dd($request);
