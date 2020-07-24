@@ -24,8 +24,10 @@ Route::get('/', 'testController@input');
 //     return view('input');
 // });
 
-Route::post('result', 'testController@result');
+Route::get('result', 'testController@result');
 
-Route::post('detail', 'testController@detail');
+Route::get('detail', 'testController@detail');
+
+Route::get('detail/{id}', 'testController@book_detail');
 
 Route::post('store', 'testController@store');

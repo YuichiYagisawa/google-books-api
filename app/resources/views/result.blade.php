@@ -1,7 +1,7 @@
 @extends('template')
 @foreach ($json_decode['items'] as $item)
   {{ $item['volumeInfo']['title'] }} <br>
-  <form action="/detail" method="post">
+  <form action="/detail" method="get">
     @csrf
     <input type="hidden"  name="book_url" value="{{ $item['selfLink'] }}">
     <input type="submit" value="詳細">
