@@ -6,7 +6,7 @@ $(window).on('load', function() {
 
   function builtHTML(data) {
     var html = `
-      <li>${data.title}</li>
+      <li><a href="/detail/${data.id}">${data.title}</li>
     `
     $('#book_list').append(html);
   };

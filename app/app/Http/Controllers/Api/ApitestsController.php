@@ -10,10 +10,11 @@ class ApitestsController extends Controller
 {
     public function serch(Request $request)
     {
-        $serchWord = $request -> get('keyword');
-        $books = Books::where('title', 'LIKE', "%{$serchWord}%")->get('title');
-
+        $serchWord = $request->get('keyword');
+        $books = Books::where('title', 'LIKE', "%{$serchWord}%")->get()->all();
+        // dd($books);
         // $data = [
+        //     'id' => $books->id,
         //     'title' => $books->title
         // ];
 

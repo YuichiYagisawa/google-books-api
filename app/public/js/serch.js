@@ -10983,7 +10983,7 @@ return jQuery;
       input = '';
 
   function builtHTML(data) {
-    var html = "\n      <li>".concat(data.title, "</li>\n    ");
+    var html = "\n      <li><a href=\"/detail/".concat(data.id, "\">").concat(data.title, "</li>\n    ");
     $('#book_list').append(html);
   }
 
