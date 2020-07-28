@@ -51,18 +51,37 @@ class testController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
-        $new_book = new Books;
-        $new_book->title = $request->title;
-        $new_book->description = $request->description;
-        $new_book->publishedDate = $request->publishedDate;
-        $new_book->bookId = $request->id;
-        // dd($new_book);
-        $new_book->save();
+        $id = $request->id;
+        // dd($id);
+        $book = Books::where('bookId', $id)->first();
+        // dd($item);
+        // $book = $item->item->attributes;
 
-        $books = Books::all();
-        // dd($books);
-        return redirect('/')->with('books');
+        // dd($book);
+        if ($book) {
+            $id = $book->id;
+            // dd($id);
+            $data = [
+                'title' => $book->title,
+                'description' => $book->description,
+                'publishedDate' => $book->publishedDate,
+            ];
+            // dd($data);
+            return redirect()->route('detail', ['id'=>$id])->with($data);
+        } else {
+            // dd($request);
+            $new_book = new Books;
+            $new_book->title = $request->title;
+            $new_book->description = $request->description;
+            $new_book->publishedDate = $request->publishedDate;
+            $new_book->bookId = $request->id;
+            // dd($new_book);
+            $new_book->save();
+    
+            $books = Books::all();
+            // dd($books);
+            return redirect('/')->with('books');
+        }
     }
  
 }

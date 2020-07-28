@@ -28,6 +28,6 @@ Route::get('result', 'testController@result');
 
 Route::get('detail', 'testController@detail');
 
-Route::get('detail/{id}', 'testController@book_detail');
+Route::get('detail/{id}', 'testController@book_detail')->name('detail');
 
 Route::post('store', 'testController@store');
