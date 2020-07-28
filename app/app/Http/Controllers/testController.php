@@ -12,8 +12,6 @@ class testController extends Controller
     {
         $books = Books::all();
         // dd($books);
-
-        // return view('input')->with($books);
         return view('input', compact('books'));
     }
 
@@ -52,15 +50,11 @@ class testController extends Controller
     public function store(Request $request)
     {
         $id = $request->id;
-        // dd($id);
         $book = Books::where('bookId', $id)->first();
-        // dd($item);
-        // $book = $item->item->attributes;
 
         // dd($book);
         if ($book) {
             $id = $book->id;
-            // dd($id);
             $data = [
                 'title' => $book->title,
                 'description' => $book->description,
